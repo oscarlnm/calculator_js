@@ -13,6 +13,17 @@ function calculate(button){
     }else if(value === "="){
         console.log(joinNumbers);
         screenDisplay.textContent = eval(joinNumbers);
+    }else if(value === "%"){
+        // Obtén el número actual de la pantalla
+        const currentNumber = parseFloat(joinNumbers);
+        // Divide el número por 100
+        const result = currentNumber / 100;
+        // Actualiza la pantalla con el resultado
+        screenDisplay.textContent = result;
+        // Reinicia el cálculo
+        calculation = [];
+        // Agrega el resultado al cálculo para futuras operaciones
+        calculation.push(result.toString());
     }else{
         calculation.push(value);
         joinNumbers = calculation.join('');
